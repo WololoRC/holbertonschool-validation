@@ -1,4 +1,4 @@
-Prerequisites: 
+Prerequisites
 
 This project needs the following tools / services:
 
