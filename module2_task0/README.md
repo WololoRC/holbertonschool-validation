@@ -1,4 +1,4 @@
-Prerequisites: 
+## Prerequisites: 
 
 This project needs the following tools / services:
 
@@ -8,7 +8,7 @@ NPM v7+ with NodeJS v14.* (stable)
 Python 3 with pip module
 golangci-lint
 
-Lifecycle
+## Lifecycle
 
 “build”: compile the source code of the application to a binary named awesome-api (the name awesome-api comes from the command go mod init github.com/<your github handle>/awesome-api) with the command go build. The first build may takes some times.
 i
