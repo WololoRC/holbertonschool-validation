@@ -1,5 +1,4 @@
-Prerequisites: 
-This project needs the following tools / services:
+Prerequisites: This project needs the following tools / services:
 
 Same tools as previous module
 Golang in v1.15.*
