@@ -1,10 +1,14 @@
-Prerequisites: This project needs the following tools / services:
+Prerequisites: 
+
+This project needs the following tools / services:
 
 Same tools as previous module
 Golang in v1.15.*
 NPM v7+ with NodeJS v14.* (stable)
 Python 3 with pip module
 golangci-lint
+
+Lifecycle
 
 “build”: compile the source code of the application to a binary named awesome-api (the name awesome-api comes from the command go mod init github.com/<your github handle>/awesome-api) with the command go build. The first build may takes some times.
 i
