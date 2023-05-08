@@ -19,8 +19,8 @@ stop: ##Stop the application.
 	@pkill awesome-api
 
 clean: ##Stop the application. Delete the binary awesome-api and the log file awesome-api.log 
-	@rm -r dist
-	@rm awesome-api awesome-api.log
+	@rm -rf dist
+	@rm -rf awesome-api awesome-api.log
 
 test: ##Tests ports 9999 and health
 	curl http://localhost:9999
