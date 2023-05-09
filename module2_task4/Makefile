@@ -16,7 +16,7 @@ check: ## Check something, we don't know what.
 	@markdownlint content/posts/*.md
 	@markdown-link-check content/posts/*.md
 
-validate: build ## Validate html's
+validate: ## Validate html's
 	python3 /opt/W3C-Validator/w3c_validator.py dist/index.html || true
 
 help:## Show this help usage
