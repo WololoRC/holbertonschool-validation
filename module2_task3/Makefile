@@ -12,7 +12,7 @@ stop: ##Stop the application.
 
 clean: ##Stop the application. Delete the binary awesome-api and the log file awesome-api.log 
 	@rm -f awesome-api/awesome-api awesome-api.log
-	@rm -f coverage_integration.out coverage-units.out
+	@rm -f coverage_integrations.out coverage-units.out
 
 test: unit-tests integration-tests ##Tests ports 9999 and health
 
@@ -23,4 +23,4 @@ unit-tests: ## Execute unittests
 	@go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Execute integration tests
-	@go test -v -coverprofile=coverage_integration.out 
+	@go test -v -coverprofile=coverage_integrations.out 
