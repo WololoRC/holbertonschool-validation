@@ -1,5 +1,3 @@
-MAKEFLAGS = -i
-
 build: check## Create all the files needed to to deploy the web page on the 'dist' directory.
 	@hugo
 
