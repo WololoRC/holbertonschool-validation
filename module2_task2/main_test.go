@@ -7,6 +7,106 @@ import (
   "testing"
 )
 
+func TestHealthCheckHandler(t *testing.T) {
+  req, err := http.NewRequest("GET", "/health", nil)
+  if err != nil {
+      t.Fatal(err)
+  }
+
+  rr := httptest.NewRecorder()
+  handler := http.HandlerFunc(HealthCheckHandler)
+
+  handler.ServeHTTP(rr, req)
+
+  if status := rr.Code; status != http.StatusOK {
+      t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusOK)
+  }
+
+  expected := "ALIVE"
+  if rr.Body.String() != expected {
+      t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
+  }
+}
+
+func TestHelloHandlerEmptyName(t *testing.T) {
+  req, err := http.NewRequest("GET", "/hello?name=", nil)
+  if err != nil {
+      t.Fatal(err)
+  }
+
+  rr := httptest.NewRecorder()
+  handler := http.HandlerFunc(HelloHandler)
+
+  handler.ServeHTTP(rr, req)
+
+  if status := rr.Code; status != http.StatusBadRequest {
+      t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusBadRequest)
+  }
+}
+
+func TestHelloHandlerMultipleNames(t *testing.T) {
+  req, err := http.NewRequest("GET", "/hello?name=test1&name=test2", nil)
+  if err != nil {
+      t.Fatal(err)
+  }
+
+  rr := httptest.NewRecorder()
+  handler := http.HandlerFunc(HelloHandler)
+
+  handler.ServeHTTP(rr, req)
+
+  if status := rr.Code; status != http.StatusOK {
+      t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusOK)
+  }
+
+  expected := "Hello test1!"
+  if rr.Body.String() != expected {
+      t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
+  }
+}
+
+func TestSetupRouter(t *testing.T) {
+  router := setupRouter()
+
+  req, err := http.NewRequest("GET", "/health", nil)
+  if err != nil {
+      t.Fatal(err)
+  }
+
+  rr := httptest.NewRecorder()
+
+  router.ServeHTTP(rr, req)
+
+  if status := rr.Code; status != http.StatusOK {
+      t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusOK)
+  }
+
+  expected := "ALIVE"
+  if rr.Body.String() != expected {
+      t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
+  }
+
+  req2, err2 := http.NewRequest("GET", "/hello?name=test", nil)
+  if err2 != nil {
+      t.Fatal(err2)
+  }
+
+  rr2 := httptest.NewRecorder()
+
+  router.ServeHTTP(rr2, req2)
+
+  if status2 := rr2.Code; status2 != http.StatusOK {
+      t.Errorf("handler returned wrong status code: got %v want %v", status2, http.StatusOK)
+  }
+
+  expected2 := "Hello test!"
+  if rr2.Body.String() != expected2 {
+      t.Errorf("handler returned unexpected body: got %v want %v", rr2.Body.String(), expected2)
+  }
+}
+
+
+
 func Test_HelloHandler(t *testing.T) {
   if !testing.Short() {
     t.Skip("Flag `-short` absent: skipping Unit Tests.")
