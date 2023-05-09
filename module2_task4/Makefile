@@ -1,3 +1,5 @@
+MAKEFLAGS = -i
+
 build: check## Create all the files needed to to deploy the web page on the 'dist' directory.
 	@hugo
 
@@ -15,6 +17,9 @@ post:## Create the '.md' files inside 'content/posts' with the attibutes neded. 
 check: ## Check something, we don't know what. 
 	@markdownlint content/posts/*.md
 	@markdown-link-check content/posts/*.md
+
+validate: ## Validate html's
+	python3 /opt/W3C-Validator/w3c_validator.py dist/index.html
 
 help:## Show this help usage
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
