@@ -2,7 +2,7 @@ build: check## Create all the files needed to to deploy the web page on the 'dis
 	@hugo
 
 clean:## Delete all content on the 'dist' directory.
-	@rm -r dist/
+	@rm -rf dist/
 
 post:## Create the '.md' files inside 'content/posts' with the attibutes neded. Atts: $POST_NAME, $POST_TITLE
 	@hugo new posts/$(POST_NAME).md
