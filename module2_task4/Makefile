@@ -17,7 +17,7 @@ check: ## Check something, we don't know what.
 	@markdown-link-check content/posts/*.md
 
 validate: ## Validate html's
-	W3C-Validator/w3c_validator.py dist/index.html || true
+	@W3C-Validator/w3c_validator.py dist/index.html || true
 
 help:## Show this help usage
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
