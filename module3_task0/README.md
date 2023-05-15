@@ -33,3 +33,7 @@ check: Check something, we don't know what.
 validate: Validate html's
 
 post: Create the '.md' files inside 'content/posts' with the attibutes neded. Atts: $POST_NAME, $POST_TITLE
+
+## WorkFlow
+
+Mades something easy a thing to get mad about it
