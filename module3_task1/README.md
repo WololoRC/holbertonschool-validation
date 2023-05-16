@@ -37,3 +37,7 @@ post: Create the '.md' files inside 'content/posts' with the attibutes neded. At
 ## WorkFlow
 
 Mades something easy a thing to get mad about it
+
+## Build Workflow
+
+setup tool for Build
