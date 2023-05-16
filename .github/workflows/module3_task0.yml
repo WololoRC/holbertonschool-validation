@@ -6,9 +6,13 @@ on:
     - main
   schedule:
     - cron: '30 5,17 * * *'
+    
 jobs:
   we-are-on-board:
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: module3_task0
+
     steps:
-      - working-directory: module3_task0
       - run: make help
