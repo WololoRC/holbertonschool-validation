@@ -1,5 +1,5 @@
-name: learning-workflow
-run-name: ${{ github.actor }} is testing out GitHub Actions
+name: module3_task0
+run-name: module3_task0
 on:
   push:
     branches:
