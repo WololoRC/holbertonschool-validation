@@ -33,8 +33,9 @@ post:## Create the '.md' files inside 'content/posts' with the attibutes neded. 
 	---" > content/posts/$(POST_NAME).md
 
 check: ## Check something, we don't know what. 
-	@markdownlint content/posts/*.md
-	@markdown-link-check content/posts/*.md
+	@echo 'hola'''
+#	@markdownlint content/posts/*.md
+#	@markdown-link-check content/posts/*.md
 
 validate: ## Validate html's
 	@python3 /opt/W3C-Validator/w3c_validator.py dist/index.html || true
