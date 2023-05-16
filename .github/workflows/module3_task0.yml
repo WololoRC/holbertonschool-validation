@@ -10,5 +10,5 @@ jobs:
   we-are-on-board:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - run: make -C module3_task0 help
+      - working-directory: module3_task0
+      - run: make help
