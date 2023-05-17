@@ -16,3 +16,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: ./setup.sh
+      - run: make build
