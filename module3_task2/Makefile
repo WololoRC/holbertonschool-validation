@@ -42,7 +42,7 @@ validate: ## Validate html's
 	@python3 /opt/W3C-Validator/w3c_validator.py dist/index.html || true
 
 package: # zip's /dist and awesome-api
-	@zip -r awesome-website.zip dist/ awesome-api
+	@zip -r awesome-website.zip dist/ awesome-api/awesome-api
 
 help:## Show this help usage
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
