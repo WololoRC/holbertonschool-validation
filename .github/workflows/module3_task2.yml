@@ -1,0 +1,22 @@
+name: module3_task2
+run-name: module3_task2
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '30 5,17 * * *'
+defaults:
+  run:
+    shell: bash
+    working-directory: module3_task2
+jobs:
+  run-setup:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - run: ./setup.sh
+      - run: make build
+        id : build-success
+      - if: steps.build-success.uotputs.success
+      - run: make package
