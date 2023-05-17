@@ -19,4 +19,4 @@ jobs:
       - run: make build
         id : build-success
       - if: steps.build-success.outputs.success
-      - run: make package
+        run: make package
