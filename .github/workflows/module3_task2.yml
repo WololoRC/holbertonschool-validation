@@ -18,5 +18,5 @@ jobs:
       - run: ./setup.sh
       - run: make build
         id : build-success
-      - if: steps.build-success.uotputs.success
+      - if: steps.build-success.outputs.success
       - run: make package
