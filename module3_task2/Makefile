@@ -33,7 +33,7 @@ post:## Create the '.md' files inside 'content/posts' with the attibutes neded. 
 	draft: true\n\
 	---" > content/posts/$(POST_NAME).md
 
-check: ## Check something, we don't know what.
+check: test## Check something, we don't know what.
 	@echo 'hola'''
 #	@markdownlint content/posts/*.md
 #	@markdown-link-check content/posts/*.md
