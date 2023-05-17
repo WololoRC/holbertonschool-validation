@@ -3,6 +3,7 @@ lint: ##Checks if code have no possible errors
 #	@golangci-lint run main.go
 
 build: lint check##Compile the source code of the application to a binary named awesome-api, The first build may takes some time.
+	@echo make-unit-tests
 	@sudo hugo
 	@sudo go build -o awesome-api/awesome-api main.go
 
@@ -33,7 +34,7 @@ post:## Create the '.md' files inside 'content/posts' with the attibutes neded. 
 	draft: true\n\
 	---" > content/posts/$(POST_NAME).md
 
-check: test## Check something, we don't know what.
+check: ## Check something, we don't know what.
 	@echo 'hola'''
 #	@markdownlint content/posts/*.md
 #	@markdown-link-check content/posts/*.md
